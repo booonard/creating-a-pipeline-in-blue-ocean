@@ -13,9 +13,6 @@ pipeline {
       }
     }
     stage('Test') {
-      environment {
-        CI = 'true'
-      }
       steps {
         sh './jenkins/scripts/test.sh'
       }
@@ -26,5 +23,8 @@ pipeline {
         input 'Finished using the web site? (Click "Proceed" to continue)'
       }
     }
+  }
+  environment {
+    CI = 'true'
   }
 }
